@@ -1,7 +1,7 @@
 # Desker
 
 <p align="center">
-<img width="40%" height="40%" alt="Image" src="https://github.com/user-attachments/assets/536564e3-934e-4bdd-89e3-5b3de8401b08" />
+<img width="30%" height="30%" alt="Image" src="https://github.com/user-attachments/assets/536564e3-934e-4bdd-89e3-5b3de8401b08" />
 </p>
 
 <p align="center">
@@ -60,14 +60,27 @@ Desker는 웹사이트를 둘러보며 필요한 정보를 찾기 어려운 방�
 # 🤖 Preview
 
 <p align="center" style="display: flex; justify-content: center; gap: 60px;">
-  <img 
-    src="https://github.com/user-attachments/assets/88727deb-c4ed-41c4-8fbb-959c82f9fb4a"
-    style="width: 450px; height: 280px; object-fit: cover; border-radius: 8px;"
-  />
-  <img 
-    src="https://github.com/user-attachments/assets/80049874-76aa-4712-aee8-327d8dfdc728"
-    style="width: 450px; height: 280px; object-fit: cover; border-radius: 8px;"
-  />
+
+  <div style="border: 1px solid #d1d5db; border-radius: 10px; padding: 10px; text-align: center;">
+    <img 
+      src="https://github.com/user-attachments/assets/88727deb-c4ed-41c4-8fbb-959c82f9fb4a"
+      style="width: 450px; height: 280px; object-fit: cover; border-radius: 8px;"
+    />
+    <p style="margin-top: 8px; font-size: 14px; color: #6b7280;">
+      로그인 후 대시보드에서 챗봇을 관리
+    </p>
+  </div>
+
+  <div style="border: 1px solid #d1d5db; border-radius: 10px; padding: 10px; text-align: center;">
+    <img 
+      src="https://github.com/user-attachments/assets/80049874-76aa-4712-aee8-327d8dfdc728"
+      style="width: 450px; height: 280px; object-fit: cover; border-radius: 8px;"
+    />
+    <p style="margin-top: 8px; font-size: 14px; color: #6b7280;">
+      사장님 홈페이지에 챗봇을 꼽아 사용
+    </p>
+  </div>
+
 </p>
 
 
@@ -112,10 +125,14 @@ Desker를 이용하는 사장님은 개발 지식 없이도 AI 안내원을 설�
 ---
 # 🛠️ Tech Stacks
 
-#### Frontend  
-![Next.js](https://img.shields.io/badge/Next.js-000000?style=flat-square&logo=nextdotjs&logoColor=fff)
+#### Frontend
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=000)
 &nbsp;
 ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=fff)
+&nbsp;
+![React](https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=react&logoColor=000)
+&nbsp;
+![Next.js](https://img.shields.io/badge/Next.js-000000?style=flat-square&logo=nextdotjs&logoColor=fff)
 &nbsp;
 ![TailwindCSS](https://img.shields.io/badge/TailwindCSS-06B6D4?style=flat-square&logo=tailwindcss&logoColor=fff)
 &nbsp;
@@ -228,8 +245,10 @@ Desker를 이용하는 사장님은 개발 지식 없이도 AI 안내원을 설�
 
 # 🖥️ Development
 
-### 1. 사용자 친화적인 랜딩 페이지와 대시보드 UI는 어떻게 구성할까?
+### 1. 랜딩 페이지와 대시보드 UI 구조는 어떻게 설계, 구현했는가?
 ---
+랜딩 페이지와 대시보드는 Next.js 기반의 라우팅 구조와 shadcn/ui 컴포넌트 시스템을 활용해 일관된 사용자 흐름과 재사용 가능한 UI로 설계·구현했습니다.
+
 Desker 프로젝트는 홈페이지에 쉽게 챗봇을 붙일 수 있는 서비스를 목표로 했기 때문에 처음 접속한 사용자가 서비스를 이해하고 가입 → 로그인 → 챗봇 설정까지 빠르게 이어질 수 있는
 명확하고 직관적인 UI 흐름이 필요했습니다.
 
@@ -259,13 +278,12 @@ UI 통일 작업 이후, 사용자는 한눈에 각 메뉴의 역할을 구분�
 <br>
 
 
-### 2. 로그인, 회원가입 흐름을 어떻게 설계·연결했나?
+### 2. 인증 흐름은 어떻게 설계하고, Edge 런타임 제약을 해결했는가?
 ---
-Desker는 단순한 로그인 시스템이 아니라 사장님을 기준으로 챗봇 AI가 존재하고 각 챗봇마다 다수의 대화 세션(session)과 세부 메시지(message)가 연결되는 구조임으로 로그인, 회원가입 구조가 필수로 필요했습니다.
-즉, 한 사용자가 로그인하면 단순히 “대시보드”만 접근하는 게 아니라 사장님의 인증된 ID로 부터 챗봇의 고유 ID 및 대화 방까지 연결해야 하는 흐름입니다.
-이때 인증이 제대로 작동하지 않으면 다른 사용자의 챗봇 혹은 세션 데이터를 열람할 수 있기 떄문에 로그인과 회원가입 기능을 구현하게 되었습니다.
+Desker의 로그인·회원가입 기능은 단순히 로그인 후 대시보드로 이동하는 수준이 아니라 사장님 계정 → 챗봇 → 대화 세션 → 개별 메시지로 이어지는 데이터를 안전하게 연결해야 하는 구조로 설계되었습니다.
+즉, 사용자가 로그인하면 자신의 챗봇과 그 안의 모든 대화 내역에만 접근할 수 있어야 하기 때문에 정확하고 안전한 인증 흐름이 매우 중요했습니다.
 
-로그인·세션 관리·OAuth 인증 등을 쉽게 도와주는 Next.js 라이브러리인 Auth.js을 활용해서 회원가입과 로그인 기능을 구현하게 되었습니다.
+이를 위해 Next.js의 Auth.js 라이브러리를 사용해 로그인과 세션 관리를 구현했습니다. Auth.js는 로그인 상태 유지, OAuth 지원 등 인증에 필요한 로직을 자동으로 처리해 주어, 서버 코드를 간결하게 유지할 수 있습니다.
 ```tsx
 import { signIn } from "@/auth"
  
@@ -283,11 +301,12 @@ export function SignIn() {
 }
 ```
 
-처음 회원가입을 진행 하게 될때는 DB에 저장되어 있는 메일/전화번호 중복 검사를 원자적으로 수행하고, 비밀번호를 bcrypt로 해시 저장 합니다. 가입 중에 Zod를 통해 가입 정보를 검증하게 구현했습니다.
-회원가입이 완료 되면 리다이렉트로 로그인 창이 보여지게 되어 회원가입한 계정으로 로그인을 진행할 수 있게 됩니다.
+회원가입 시에는 입력된 이메일·전화번호의 중복 여부를 DB에서 검증하고, 비밀번호는 bcrypt로 암호화하여 안전하게 저장합니다.
+또한 Zod를 통해 입력값 형식을 검증해 잘못된 데이터가 저장되지 않도록 했습니다.
+회원가입이 완료되면 로그인 화면으로 자동 이동하여 즉시 새 계정으로 로그인할 수 있습니다.
 
-이런 기능을 구현하면서 에러도 존재하였습니다. 
-
+개발 과정에서 예상치 못한 문제가 하나 있었습니다.
+로그인 동작 중, 아래와 같은 Prisma 관련 오류(500 Internal Server Error) 가 발생한 것입니다.
 
 ```log
 GET http://localhost:3000/ 500 (Internal Server Error)Understand this error
@@ -296,63 +315,30 @@ If this is unexpected, please open an issue...
 ```
 
 
-이 오류의 핵심은 Edge 런타임(미들웨어) 안으로 Prisma(=Node 전용) 가 끌려들어가서 에러가 난거였습니다. 
-그 이유는 미들웨어 파일에서 직접 Prisma를 import한 건 아니어도 미들웨어가 import하는 파일 auth.ts이 또 lib/prisma를 import 하여서 Edge 번들에 스며들었다는 이유를 찾아
-auth.ts 파일을 auth.server.ts 와 auth.edge.ts로 나뉘어서 로직을 구현하게 되었습니다. auth.server.ts에서는 로그인 처리(이메일/비번 검증, DB 조회 등) 기능을 담당하고
-auth.edge.ts에서는 미들웨어에서 세션 토큰 읽기/가벼운 보호 기능만 담당하여 역할을 분리 하였습니다. 
+이 문제는 Edge 런타임 환경에서 Prisma가 실행되면서 생긴 충돌이었습니다.
+Next.js 미들웨어는 “Edge 런타임”(브라우저와 유사한 경량 서버 환경)에서 실행되는데, Prisma는 “Node.js 전용”이기 때문에 Edge 환경에 포함되면 동작하지 않습니다.
+
+이 문제를 해결하기 위해 인증 로직을 두 개의 파일로 분리했습니다. 
+ - auth.server.ts → 로그인 검증, DB 조회 등 서버 전용 로직 담당
+ - auth.edge.ts → 미들웨어에서 세션 토큰 확인 등 Edge 환경 전용 로직 담당
+ 
+이렇게 역할을 나누면서, Edge 런타임에서도 충돌 없이 동작하고 안정적으로 로그인과 세션을 유지할 수 있는 인증 구조를 완성했습니다.
 
 <br>
 
 
 
-### 3. 챗봇과의 대화 및 DB 메시지를 어떻게 불러올까?
+### 3. 챗봇 학습을 위한 크롤러는 왜 구현했는가?
 ---
 
-사장님은 자신의 홈페이지에 설치한 챗봇과 방문자 사이의 대화 내역을 조회해야 했습니다. 사장님은  대화 흐름을 분석하거나 사용자 문의를 확인해야 했기 때문입니다.
+Desker의 챗봇은 단순히 미리 정해진 문장만 대답하는 것이 아니라 사장님 홈페이지의 실제 내용을 이해하고 답변하는 AI 챗봇을 목표로 했습니다.
+이를 위해서는 챗봇이 홈페이지의 여러 페이지(소개, 메뉴, 문의, 공지 등)를 모두 읽고 그 안의 정보를 스스로 학습할 수 있어야 했습니다.
+이 역할을 담당하는 것이 바로 크롤러(Crawler) 입니다.
 
-따라서 DB에 저장된 챗봇과의 대화를 가져와 UI에 보여줘야 했습니다. 초기에는 백엔드에서 대화 데이터를 불러올 때 메시지 객체의 구조가 프론트에서 예상한 형태와 달라
-상세 대화 UI에 [object Object]로 표시되는 문제가 발생했습니다. [object Object]로 표시되는 문제를 해결하려고 디버깅해본 결과, 프론트에서는 이 데이터를 단순히 문자열로 렌더링하려다 보니 Object 타입 전체가 그대로 문자열화되어 버렸던 것입니다.
-
-이를 해결하기 위해서 DB 구조 자체는 이미 팀원과 협의한 구조가 있으니 DB 구조를 바꾸지 않고 프론트에서 데이터를 받아올 때 메시지 객체의 text 필드를 직접 파싱하도록 변경하였습니다. 
-```tsx
-useEffect(() => {
-    const loadPrevMessages = async () => {
-      try {
-        const messagesResponse = await fetch(
-          `${process.env.NEXT_PUBLIC_DESEKER_SERVER_URL}/api/chat/${sessionId}/messages`
-        );
-        const messageData = await messagesResponse.json();
-
-        if (messageData.messages && messageData.messages.length > 0) {
-          setMessages(messageData.messages);
-        }
-      } catch (error) {
-        console.error("기존 메시지 로드하기 실패: ", error);
-      }
-    };
-
-    loadPrevMessages();
-  }, [sessionId]);
-```
-<br>
+처음에는 외부에서 제공하는 크롤링 도구를 검토했지만 홈페이지 구조가 제각각이어서 원하는 정보만 정확히 추출하기 어려웠습니다.
+그래서 Desker에서는 크롤러 기능을 직접 구현하게 되었습니다. 
 
 
-
-### 4. 크롤러 기능을 어떻게 구현했을까?
----
-
-챗봇 AI가 사장님 홈페이지의 콘텐츠를 이해하고 답변하려면 홈페이지의 비정형 HTML을 정제된 텍스트로 변환하고 이를 텍스트 데이터를 숫자 벡터 형태로 변환해 하는 기능인 임베딩을 구현해야 했습니다.
-임배딩에서 변환된 벡터 데이터를 저장하고 사용자가 입력한 질문과 의미적으로 가장 유사한 콘텐츠를 고속 검색을 할 수 있는벡터 인덱스로 올려 검색 증강에 활용해야 했습니다.
-또한 챗봇 AI의 학습 범위가 홈페이지의 단일 URL이 아니라 홈페이지 내부의 전반적인 정보를 폭넓게 이해해야 하기 때문에 크롤러 기능은 필수라고 판단하였고 직접 구현하였습니다.
-구현 과정에서는 HTML을 Markdown 형식으로 변환하였고 홈페이지 내부의 모든 하위 링크를 재귀적으로 탐색하여 사이트 전반의 콘텐츠를 수집할 수 있도록 설계했습니다.
-
-<img width="1996" height="1378" alt="Image" src="https://github.com/user-attachments/assets/6ff19d9e-1ac8-4411-a0fe-522864277417" />
-
-임베딩 단계에서는 Google AI SDK를 통해 Google Gemini의 임베딩 모델인 text-embedding-004 를 선택하였습니다. 이 모델은 768차원 벡터(=각 문장을 768개의 수치로 표현) 를 생성하는 모델로,
-1536차원 임베딩보다 벡터 크기가 절반 정도로 작아 업서트(저장) 및 검색 속도가 빠르고 최신 데이터 갱신 주기가 잦은 서비스 환경에 적합하다고 판단했습니다.
-
-팀 논의 결과 Desker의 챗봇은 기업 홈페이지 내 정보에 빠르게 반응하고 최신성을 유지하는 것이 가장 중요했기 때문에
-정확도보다 응답 속도와 실시간 갱신성을 우선시해 768차원 기반의 Google Gemini text-embedding-004 임베딩 모델을 최종 선택했습니다.
 
 
 <br>
@@ -414,4 +400,5 @@ useEffect(() => {
 
   
 <br>
+
 
