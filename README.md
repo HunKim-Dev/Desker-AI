@@ -61,25 +61,9 @@ Desker는 웹사이트를 둘러보며 필요한 정보를 찾기 어려운 방�
 
 <p align="center" style="display: flex; justify-content: center; gap: 60px;">
 
-  <div style="border: 1px solid #d1d5db; border-radius: 10px; padding: 10px; text-align: center;">
-    <img 
-      src="https://github.com/user-attachments/assets/88727deb-c4ed-41c4-8fbb-959c82f9fb4a"
-      style="width: 450px; height: 280px; object-fit: cover; border-radius: 8px;"
-    />
-    <p style="margin-top: 8px; font-size: 14px; color: #6b7280;">
-      로그인 후 대시보드에서 챗봇을 관리
-    </p>
-  </div>
-
-  <div style="border: 1px solid #d1d5db; border-radius: 10px; padding: 10px; text-align: center;">
-    <img 
-      src="https://github.com/user-attachments/assets/80049874-76aa-4712-aee8-327d8dfdc728"
-      style="width: 450px; height: 280px; object-fit: cover; border-radius: 8px;"
-    />
-    <p style="margin-top: 8px; font-size: 14px; color: #6b7280;">
-      사장님 홈페이지에 챗봇을 꼽아 사용
-    </p>
-  </div>
+| 로그인 후 대시보드에서 챗봇을 관리 | 사장님 홈페이지에 챗봇을 꼽아 사용 |
+|:--:|:--:|
+| <img width="450" height="280" alt="Dashboard" src="https://github.com/user-attachments/assets/88727deb-c4ed-41c4-8fbb-959c82f9fb4a" /> | <img width="450" height="280" alt="Widget" src="https://github.com/user-attachments/assets/80049874-76aa-4712-aee8-327d8dfdc728" /> |
 
 </p>
 
@@ -400,5 +384,6 @@ Desker의 챗봇은 단순히 미리 정해진 문장만 대답하는 것이 아
 
   
 <br>
+
 
 
