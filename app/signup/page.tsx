@@ -14,16 +14,15 @@ import { Input } from "@/components/ui/input";
 import { redirect } from "next/navigation";
 import prisma from "@/lib/prisma";
 import bcrypt from "bcrypt";
+import { AUTH } from "@/config/ui-text";
 
 const SignupPage = () => {
   return (
     <div className="min-h-screen w-full bg-gradient-to-br from-background via-muted/50 to-muted/30 flex items-center justify-center p-6">
       <Card className="w-full max-w-md shadow-lg">
         <CardHeader className="space-y-2">
-          <CardTitle className="text-2xl">회원가입</CardTitle>
-          <CardDescription>
-            이메일, 비밀번호, 전화번호를 입력해 계정을 만들어 주세요.
-          </CardDescription>
+          <CardTitle className="text-2xl">{AUTH.SIGNUP_LABEL}</CardTitle>
+          <CardDescription>{AUTH.SIGNUP_DESCRIPTION}</CardDescription>
         </CardHeader>
 
         <CardContent>
@@ -46,10 +45,11 @@ const SignupPage = () => {
 
               redirect(`/login?email=${encodeURIComponent(email)}`);
             }}
+            className="space-y-5"
           >
             <div className="grid gap-2">
               <label htmlFor="email" className="text-sm font-medium">
-                이메일
+                {AUTH.EMAIL_LABEL}
               </label>
               <div className="relative">
                 <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 opacity-60" />
@@ -67,7 +67,7 @@ const SignupPage = () => {
 
             <div className="grid gap-2">
               <label htmlFor="password" className="text-sm font-medium">
-                비밀번호
+                {AUTH.PASSWORD_LABEL}
               </label>
               <div className="relative">
                 <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 opacity-60" />
@@ -86,7 +86,7 @@ const SignupPage = () => {
 
             <div className="grid gap-2">
               <label htmlFor="phoneNumber" className="text-sm font-medium">
-                전화번호
+                {AUTH.PHONE_LABEL}
               </label>
               <div className="relative">
                 <Phone className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 opacity-60" />
@@ -101,23 +101,23 @@ const SignupPage = () => {
                 />
               </div>
               <p className="text-xs text-muted-foreground">
-                로그인 알림 및 계정 복구 등에 사용될 수 있어요.
+                {AUTH.PHONE_DESCRIPTION}
               </p>
             </div>
 
             <Button type="submit" className="w-full">
-              회원가입
+              {AUTH.SIGNUP_LABEL}
             </Button>
 
-            <div className="flex items-center justify-between text-sm">
+            <div className="flex justify-center items-center gap-1 text-sm">
               <span className="text-muted-foreground">
-                이미 계정이 있으신가요?
+                {AUTH.ALREADY_SIGNUP}
               </span>
               <Link
                 href="/login"
                 className="underline underline-offset-4 hover:opacity-80"
               >
-                로그인
+                {AUTH.LOGIN_LABEL}
               </Link>
             </div>
           </form>
@@ -125,15 +125,15 @@ const SignupPage = () => {
 
         <CardFooter className="flex flex-col items-start gap-2 text-xs text-muted-foreground">
           <p>
-            회원가입을 진행하면{" "}
+            {AUTH.SIGNUP_FOOTER_START}{" "}
             <Link href="/terms" className="underline underline-offset-4">
-              서비스 약관
+              {AUTH.FOOTER_TERMS}
             </Link>
-            과{" "}
+            {"과 "}
             <Link href="/privacy" className="underline underline-offset-4">
-              개인정보 처리방침
+              {AUTH.FOOTER_PRIVACY}
             </Link>
-            에 동의하는 것으로 간주됩니다.
+            {AUTH.FOOTER_END}
           </p>
         </CardFooter>
       </Card>
