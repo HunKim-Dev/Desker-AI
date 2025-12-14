@@ -1,5 +1,6 @@
 import { z } from "zod";
-import { AUTH_VALIDATION } from "config/constants";
+import { AUTH_VALIDATION } from "@/config/constants";
+
 export const signUpSchema = z.object({
   email: z
     .string()
