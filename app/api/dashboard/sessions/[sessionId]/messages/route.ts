@@ -1,5 +1,5 @@
 import { NextResponse, NextRequest } from "next/server";
-import { auth } from "@/lib/auth";
+import { auth } from "@/auth";
 import prisma from "@/lib/prisma";
 import { ERROR_MESSAGE } from "@/config/constants";
 
@@ -9,7 +9,7 @@ export const GET = async (
 ) => {
   try {
     const userSession = await auth();
-    const userChatbotId = userSession.botId;
+    const userChatbotId = (userSession?.user as any)?.botId;
 
     if (!userChatbotId) {
       return NextResponse.json(
@@ -52,7 +52,7 @@ export const GET = async (
     });
 
     const chatMessageObjects = chatMessages.map((message) => {
-      const contentMessage = JSON.parse(message.content);
+      const contentMessage = JSON.parse(message.content ?? "[]");
       return {
         messageId: message.id,
         sender: message.sender,
