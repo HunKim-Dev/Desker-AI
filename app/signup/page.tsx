@@ -1,4 +1,3 @@
-import * as React from "react";
 import Link from "next/link";
 import { Mail, Lock, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -12,8 +11,6 @@ import {
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { redirect } from "next/navigation";
-import prisma from "@/lib/prisma";
-import bcrypt from "bcrypt";
 import { AUTH } from "@/config/ui-text";
 
 const SignupPage = () => {
@@ -29,7 +26,6 @@ const SignupPage = () => {
           <form
             action={async (formData) => {
               "use server";
-
               const email = String(formData.get("email") || "")
                 .trim()
                 .toLowerCase();
@@ -37,13 +33,33 @@ const SignupPage = () => {
               const phoneNumber = String(
                 formData.get("phoneNumber") || ""
               ).replace(/\D/g, "");
+              let redirectTo = `/login?email=${encodeURIComponent(email)}`;
 
-              const passwordHash = await bcrypt.hash(password, 12);
-              await prisma.user.create({
-                data: { email, passwordHash, phoneNumber },
-              });
+              try {
+                const res = await fetch(
+                  `${process.env.NEXT_PUBLIC_DESEKER_SERVER_URL}/api/sign-up`,
+                  {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ email, password, phoneNumber }),
+                    cache: "no-store",
+                  }
+                );
 
-              redirect(`/login?email=${encodeURIComponent(email)}`);
+                const data = await res.json().catch(() => null);
+
+                if (!res.ok) {
+                  const code = data?.error?.code ?? "UNKNOWN";
+                  redirectTo = `/signup?error=${code}`;
+                } else {
+                  redirectTo = data?.redirectTo ?? redirectTo;
+                }
+              } catch (error) {
+                console.error(error);
+                redirectTo = "/signup?error=SERVER";
+              }
+
+              redirect(redirectTo);
             }}
             className="space-y-5"
           >
