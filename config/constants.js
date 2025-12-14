@@ -61,3 +61,52 @@ export const HEADER_BAR_DEATAIL_MESSAGE = {
   PERSONAL_SETTINGS:
     "계정과 사용자 정보를 관리할 수 있습니다. 개인 설정을 조정하세요.",
 };
+
+export const SIGNUP_STATUS = {
+  SUCCESS: {
+    CREATED: "회원가입이 성공적으로 완료되었습니다.",
+  },
+  ERROR: {
+    INVALID_INPUT:
+      "입력값이 올바르지 않습니다. 이메일, 비밀번호, 전화번호를 다시 확인해주세요.",
+    EMAIL_ALREADY_EXISTS: "이미 등록된 이메일입니다.",
+    PASSWORD_TOO_SHORT: "비밀번호는 최소 8자 이상이어야 합니다.",
+    PHONE_INVALID: "올바른 전화번호 형식이 아닙니다.",
+    SERVER_ERROR: "회원가입 처리 중 서버 에러가 발생했습니다.",
+    NOT_SEND_EMAIL: "이메일의 발송 처리가 실패하였습니다.",
+  },
+};
+
+export const AUTH_VALIDATION = {
+  MESSAGES: {
+    EMAIL_INVALID: "유효한 이메일 주소를 입력해주세요.",
+
+    PASSWORD_TOO_SHORT: "비밀번호는 최소 8자 이상이어야 합니다.",
+    PASSWORD_TOO_LONG: "비밀번호는 최대 72자까지 가능합니다.",
+
+    PHONE_TOO_SHORT: "전화번호가 너무 짧습니다.",
+    PHONE_TOO_LONG: "전화번호가 너무 깁니다.",
+  },
+};
+
+export const EMAIL_VERIFY = {
+  RANDOM_BYTES_NUMBER: 32,
+  HASH_NUMBER: 12,
+};
+
+export const MILLISECONDS_PER_DAY = 1000 * 60 * 60 * 24;
+
+export const EMAIL_TEMPLATE = {
+  TITLE: "Desker AI 이메일 인증",
+  DESCRIPTION: "아래 url을 누르면 이메일 인증이 완료됩니다.",
+  LINK_TEXT: "이메일 인증",
+  AGAIN_AUTH_TEXT: "링크가 동작하지 않으면 회원가입 후 다시 인증해주세요.",
+};
+
+export const EMAIL_SEND_ROUTE = {
+  FROM: "Desker AI <onboarding@resend.dev>",
+  TEST_TO: "taehunkim.builds@gmail.com",
+  SUBJECT: "Desker AI 이메일 인증 링크",
+};
+
+export const SALT_ROUNDS = 12;
