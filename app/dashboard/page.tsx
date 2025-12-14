@@ -1,14 +1,14 @@
-import { auth } from "@/auth.server";
+import { auth } from "@/auth";
 import { redirect } from "next/navigation";
 
 const DashboardHub = async () => {
   const session = await auth();
-  if (!session) redirect("/login");
 
-  const userId =
-    (session.user as any)?.id || (session as any).userId || (session as any).id;
+  if (!session?.user?.id) {
+    redirect("/login");
+  }
 
-  if (!userId) redirect("/login");
+  const userId = (session.user as any).id;
   redirect(`/dashboard/${userId}/invoices/sessions`);
 };
 
