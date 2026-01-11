@@ -27,3 +27,14 @@ export const AUTH = {
   PHONE_DESCRIPTION: "로그인 알림 및 계정 복구 등에 사용될 수 있어요.",
   ALREADY_SIGNUP: "이미 계정이 있으신가요?",
 };
+
+export const INQUIRIES = {
+  LOADING: "불러오는 중...",
+  NOTHING_LIST: "아직 접수된 문의가 없습니다.",
+  TABLE_NAME: "이름",
+  TABLE_COMPANY_NAME: "회사명",
+  TABLE_PHONE_NUMBER: "전화번호",
+  TABLE_EMAIL: "이메일",
+  TABLE_READ_STATE: "상태",
+  TABLE_DATE: "날짜",
+};

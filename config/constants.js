@@ -38,6 +38,8 @@ export const ERROR_MESSAGE = {
   LOGIN_REQUIRED: "로그인이 필요합니다.",
   CHAT_LIST_FETCH_FAILURE: "대화목록 조회가 실패하였습니다.",
   MESSAGE_FETCH_FAILURE: "상세 대화 조회가 실패하였습니다.",
+  INQUIRIES_LIST_FETCH_FAILURE:
+    "방문자 문의 리스트를 불러오는데 서버 에러가 발생했습니다.",
 };
 
 export const SUCCESS_MESSAGE = {
