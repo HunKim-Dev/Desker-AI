@@ -40,6 +40,15 @@ export const ERROR_MESSAGE = {
   MESSAGE_FETCH_FAILURE: "상세 대화 조회가 실패하였습니다.",
   INQUIRIES_LIST_FETCH_FAILURE:
     "방문자 문의 리스트를 불러오는데 서버 에러가 발생했습니다.",
+  USER_NOT_FOUND: "사용자 정보를 찾을 수 없습니다.",
+  INTERNAL_SERVER_ERROR_USER_UPDATE:
+    "사용자 정보 업데이트하는데 서버 에러가 났습니다.",
+  CURRENT_PASSWORD_MISMATCH: "현재 비밀번호가 일치하지 않습니다.",
+  INVALID_REQUEST: "유효하지 않은 요청입니다.",
+  USER_FETCH_FAILURE: "사용자 정보 불러오기 실패:",
+  USER_INIT_FAILURE: "사용자 정보 초기화 실패 에러",
+  PHONE_UPDATE_ERROR: "전화번호 업데이트 중 에러:",
+  PASSWORD_CHANGE_ERROR: "비밀번호 변경 중 에러:",
 };
 
 export const SUCCESS_MESSAGE = {

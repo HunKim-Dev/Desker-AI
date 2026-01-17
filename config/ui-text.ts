@@ -38,3 +38,29 @@ export const INQUIRIES = {
   TABLE_READ_STATE: "상태",
   TABLE_DATE: "날짜",
 };
+
+export const USER_SETTINGS = {
+  PROFILE_INFO: "프로필 정보",
+  EMAIL_LABEL: "이메일",
+  PHONE_LABEL: "전화번호",
+  JOIN_DATE_LABEL: "가입일",
+  EMAIL_VERIFIED: "인증됨",
+  EDIT: "수정",
+  CANCEL: "취소",
+  SAVE: "저장",
+  LOGOUT: "로그아웃",
+  LOADING: "불러오는 중...",
+  UPDATE_SUCCESS: "정보가 업데이트되었습니다.",
+  PASSWORD_CHANGE: "비밀번호 변경",
+  CURRENT_PASSWORD: "현재 비밀번호",
+  NEW_PASSWORD: "새 비밀번호",
+  CONFIRM_PASSWORD: "새 비밀번호 확인",
+  PASSWORD_CHANGE_SUCCESS: "비밀번호가 변경되었습니다.",
+  PASSWORD_MISMATCH: "새 비밀번호가 일치하지 않습니다.",
+  FETCH_ERROR:
+    "사용자 정보를 불러오는데 실패했습니다. 잠시 후 다시 시도해주세요.",
+  PHONE_UPDATE_FAILURE: "전화번호 업데이트 실패",
+  PHONE_UPDATE_ERROR: "전화번호 업데이트 중 오류가 발생했습니다.",
+  PASSWORD_CHANGE_FAILURE: "비밀번호 변경 실패",
+  PASSWORD_CHANGE_ERROR: "비밀번호 변경 중 오류가 발생했습니다.",
+};
