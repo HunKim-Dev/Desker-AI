@@ -11,7 +11,6 @@ const SessionsList = async ({ userId }: { userId: string }) => {
     `${process.env.NEXT_PUBLIC_DESEKER_SERVER_URL}/api/dashboard/sessions?userId=${userId}`
   );
   const data = await dataResponse.json();
-  console.log(data);
   const chatSessions: any[] = Array.isArray(data) ? data : [];
 
   return (
